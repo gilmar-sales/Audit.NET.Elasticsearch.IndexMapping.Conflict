@@ -54,7 +54,7 @@ app.MapPost("/simulate-issue", async (AppDbContext dbContext) =>
         var person = new Person
         {
             Name = "Mr Elastic",
-            BirthDate = DateTime.UtcNow.AddYears(-Random.Shared.Next(10, 20))
+            BirthDay = DateTime.UtcNow.AddYears(-Random.Shared.Next(10, 20))
         };
         
         await dbContext.Persons.AddAsync(person);
@@ -62,7 +62,7 @@ app.MapPost("/simulate-issue", async (AppDbContext dbContext) =>
         await dbContext.SaveChangesAsync();
         
         person.Name = "Mr Elastic 2";
-        person.BirthDate = DateTime.UtcNow.AddYears(-Random.Shared.Next(20, 30));
+        person.BirthDay = DateTime.UtcNow.AddYears(-Random.Shared.Next(20, 30));
 
          dbContext.Update(person);
         
