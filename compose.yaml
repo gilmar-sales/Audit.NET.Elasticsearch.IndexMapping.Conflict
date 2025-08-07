@@ -1,0 +1,7 @@
+﻿services:
+  audit.net.elasticsearch.indexmapping.conflict:
+    image: audit.net.elasticsearch.indexmapping.conflict
+    build:
+      context: .
+      dockerfile: Audit.NET.Elasticsearch.IndexMapping.Conflict/Dockerfile
+

@@ -1,0 +1,6 @@
+@Audit.NET.Elasticsearch.IndexMapping.Conflict_HostAddress = http://localhost:5201
+
+GET {{Audit.NET.Elasticsearch.IndexMapping.Conflict_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
