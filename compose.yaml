@@ -1,7 +1,45 @@
 ﻿services:
+
+  elasticsearch:
+    restart: always
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+      - ./elasticsearch/conf.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    networks:
+      - app-network
+    ports:
+      - "9200:9200"
+
   audit.net.elasticsearch.indexmapping.conflict:
     image: audit.net.elasticsearch.indexmapping.conflict
     build:
       context: .
       dockerfile: Audit.NET.Elasticsearch.IndexMapping.Conflict/Dockerfile
+    networks:
+      - app-network
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5201:8080"
+  
+  #  kibana:
+  #    restart: always
+  #    image: docker.elastic.co/kibana/kibana:8.7.1
+  #    environment:
+  #      XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY: d1a66dfd-c4d3-4a0a-8290-2abcb83ab3aa
+  #    networks:
+  #      - app-network
+  #    ports:
+  #      - "5601:5601"
+  #    depends_on:
+  #      - elasticsearch
+
+networks:
+  app-network:
+
+volumes:
+  elasticsearch-data:
 

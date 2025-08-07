@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="Audit.EntityFramework.Core" Version="30.0.2" />
+        <PackageReference Include="Audit.NET.Elasticsearch" Version="30.0.2" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.8" />
